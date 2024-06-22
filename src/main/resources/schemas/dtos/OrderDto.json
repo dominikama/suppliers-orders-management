@@ -1,0 +1,51 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OrderDTO",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int64",
+      "description": "Unique identifier for the order"
+    },
+    "orderDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of the order"
+    },
+    "supplierId": {
+      "type": "integer",
+      "format": "int64",
+      "description": "Unique identifier for the supplier"
+    },
+    "warehouseId": {
+      "type": "integer",
+      "format": "int64",
+      "description": "Unique identifier for the warehouse"
+    },
+    "products": {
+      "type": "array",
+      "description": "List of products in the order",
+      "items": {
+        "type": "object",
+        "properties": {
+          "productId": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Unique identifier for the product"
+          },
+          "productCode": {
+            "type": "string",
+            "description": "Code of the product"
+          },
+          "quantity": {
+            "type": "integer",
+            "description": "Quantity of the product"
+          }
+        },
+        "required": ["productId", "productCode", "quantity"]
+      }
+    }
+  },
+  "required": ["id", "orderDate", "supplierId", "warehouseId", "products"]
+}

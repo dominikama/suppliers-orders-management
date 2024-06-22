@@ -1,0 +1,16 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OrderDTO",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "format": "int64",
+      "description": "Unique identifier for the warehouse"
+    },
+    "code": {
+      "type": "string",
+      "description": "Code of the warehouse"
+    }
+  }
+}

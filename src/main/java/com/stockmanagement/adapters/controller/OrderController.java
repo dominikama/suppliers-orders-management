@@ -1,10 +1,9 @@
 package com.stockmanagement.adapters.controller;
 
-import com.stockmanagement.application.dtos.OrderDTO;
-
-import com.stockmanagement.application.dtos.WarehouseDTO;
 import com.stockmanagement.application.services.OrderService;
 import com.stockmanagement.application.services.WarehouseService;
+import com.stockmanagement.dtos.OrderDto;
+import com.stockmanagement.dtos.WarehouseDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,27 +23,27 @@ public class OrderController {
     }
 
     @GetMapping
-    public List<OrderDTO> getAllOrders() {
+    public List<OrderDto> getAllOrders() {
         return orderService.get();
     }
 
     @GetMapping("/warehouses")
-    public List<WarehouseDTO> getAllWarehouses() {
+    public List<WarehouseDto> getAllWarehouses() {
         return warehouseService.get();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<OrderDTO> getOrderById(@PathVariable Long id) {
+    public ResponseEntity<OrderDto> getOrderById(@PathVariable Long id) {
         return ResponseEntity.ok(orderService.getById(id));
     }
 
     @PostMapping
-    public OrderDTO createOrder(@RequestBody OrderDTO orderDTO) {
+    public OrderDto createOrder(@RequestBody OrderDto orderDTO) {
         return orderService.create(orderDTO);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<OrderDTO> updateOrder(@PathVariable Long id, @RequestBody OrderDTO orderDTO) {
+    public ResponseEntity<OrderDto> updateOrder(@PathVariable Long id, @RequestBody OrderDto orderDTO) {
         return ResponseEntity.ok(orderService.update(id, orderDTO));
     }
 

@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "OrderEvent",
+  "type": "object",
+  "properties": {
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The timestamp of the event"
+    },
+    "orderNumber": {
+      "type": "string",
+      "description": "The unique identifier of the order"
+    },
+    "orderDTO": {
+      "$ref": "../dtos/OrderDto.json",
+      "description": "The data transfer object for the order"
+    },
+    "eventType": {
+      "type": "string",
+      "description": "Type of the event"
+    }
+  },
+  "required": ["timestamp", "orderNumber", "orderDTO", "eventType"]
+}

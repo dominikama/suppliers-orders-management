@@ -1,9 +1,11 @@
 package com.stockmanagement.application.services;
 
-import com.stockmanagement.application.dtos.WarehouseDTO;
+import com.stockmanagement.dtos.WarehouseDto;
+import com.stockmanagement.events.WarehouseEvent;
 
 import java.util.List;
 
 public interface WarehouseService {
-    List<WarehouseDTO> get();
+    List<WarehouseDto> get();
+    void processWarehouseEvent(WarehouseEvent warehouseEvent);
 }

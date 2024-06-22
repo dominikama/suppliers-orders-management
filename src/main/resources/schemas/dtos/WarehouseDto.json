@@ -1,0 +1,40 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "WarehouseDto",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "integer",
+      "description": "Unique identifier for the warehouse"
+    },
+    "name": {
+      "type": "string",
+      "description": "Name of the warehouse"
+    },
+    "number": {
+      "type": "string",
+      "description": "Number of the warehouse"
+    },
+    "country": {
+      "type": "string",
+      "description": "Country where the warehouse is located"
+    },
+    "city": {
+      "type": "string",
+      "description": "City where the warehouse is located"
+    },
+    "postalCode": {
+      "type": "string",
+      "description": "Postal code of the warehouse"
+    },
+    "address": {
+      "type": "string",
+      "description": "Address of the warehouse"
+    },
+    "enabled": {
+      "type": "boolean",
+      "description": "Indicates if the warehouse is enabled"
+    }
+  },
+  "required": ["id", "name", "number", "country", "city", "postalCode", "address", "enabled"]
+}
