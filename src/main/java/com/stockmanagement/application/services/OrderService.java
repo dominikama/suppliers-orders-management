@@ -1,14 +1,13 @@
 package com.stockmanagement.application.services;
 
-import com.stockmanagement.application.dtos.OrderDTO;
+import com.stockmanagement.dtos.OrderDto;
 
 import java.util.List;
-import java.util.Optional;
 
 public interface OrderService {
-    OrderDTO create(OrderDTO orderDTO);
-    List<OrderDTO> get();
-    OrderDTO getById(Long id);
-    OrderDTO update(Long id, OrderDTO updated);
+    OrderDto create(OrderDto orderDTO);
+    List<OrderDto> get();
+    OrderDto getById(Long id);
+    OrderDto update(Long id, OrderDto updated);
     void delete(Long id);
 }

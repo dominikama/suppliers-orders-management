@@ -1,7 +1,7 @@
 package com.stockmanagement.adapters.controller;
 
-import com.stockmanagement.application.dtos.SupplierDTO;
 import com.stockmanagement.application.services.SupplierService;
+import com.stockmanagement.dtos.SupplierDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,22 +18,22 @@ public class SupplierController {
     }
 
     @GetMapping
-    public List<SupplierDTO> getAllSuppliers() {
+    public List<SupplierDto> getAllSuppliers() {
         return supplierService.get();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<SupplierDTO> getSupplierById(@PathVariable Long id) {
+    public ResponseEntity<SupplierDto> getSupplierById(@PathVariable Long id) {
         return ResponseEntity.ok(supplierService.getById(id));
     }
 
     @PostMapping
-    public SupplierDTO createSupplier(@RequestBody SupplierDTO supplierDTO) {
+    public SupplierDto createSupplier(@RequestBody SupplierDto supplierDTO) {
         return supplierService.create(supplierDTO);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<SupplierDTO> updateSupplier(@PathVariable Long id, @RequestBody SupplierDTO supplierDTO) {
+    public ResponseEntity<SupplierDto> updateSupplier(@PathVariable Long id, @RequestBody SupplierDto supplierDTO) {
         return ResponseEntity.ok(supplierService.update(id, supplierDTO));
     }
 

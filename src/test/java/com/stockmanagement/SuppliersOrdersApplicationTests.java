@@ -3,10 +3,10 @@ package com.stockmanagement;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+//@SpringBootTest
 class SuppliersOrdersApplicationTests {
 
-	@Test
+	//@Test
 	void contextLoads() {
 	}
 

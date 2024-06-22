@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "WarehouseEvent",
+  "type": "object",
+  "properties": {
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The timestamp of the event"
+    },
+    "warehouseNumber": {
+      "type": "string",
+      "description": "The unique identifier of the warehouse"
+    },
+    "warehouseDto": {
+      "$ref": "../dtos/WarehouseDto.json",
+      "description": "The data transfer object for the warehouse"
+    },
+    "eventType": {
+      "type": "string",
+      "description": "Type of the event"
+    }
+  },
+  "required": ["timestamp", "warehouseNumber", "warehouseDto", "eventType"]
+}
