@@ -8,9 +8,12 @@
       "format": "int64",
       "description": "Unique identifier for the order"
     },
+    "orderNumber": {
+      "type": "string",
+      "description": "Unique number for the order"
+    },
     "orderDate": {
       "type": "string",
-      "format": "date",
       "description": "Date of the order"
     },
     "supplierId": {
@@ -18,12 +21,15 @@
       "format": "int64",
       "description": "Unique identifier for the supplier"
     },
-    "warehouseId": {
-      "type": "integer",
-      "format": "int64",
-      "description": "Unique identifier for the warehouse"
+    "warehouseCode": {
+      "type": "string",
+      "description": "Unique code for the warehouse"
     },
-    "products": {
+    "orderStatus": {
+      "type": "string",
+      "description": "Status of the order"
+    },
+    "orderProductsDto": {
       "type": "array",
       "description": "List of products in the order",
       "items": {

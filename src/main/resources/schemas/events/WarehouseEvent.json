@@ -17,7 +17,8 @@
       "description": "The data transfer object for the warehouse"
     },
     "eventType": {
-      "type": "string",
+      "bsonType": "string",
+      "enum": ["WAREHOUSE_CREATED", "WAREHOUSE_UPDATED", "WAREHOUSE_DELETED"],
       "description": "Type of the event"
     }
   },
