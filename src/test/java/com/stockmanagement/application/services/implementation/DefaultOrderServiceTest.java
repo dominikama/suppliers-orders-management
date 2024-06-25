@@ -18,6 +18,7 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -82,7 +83,7 @@ public class DefaultOrderServiceTest {
 
         order = new Order();
         order.setId(1);
-        order.setOrderDate(LocalDate.now());
+        order.setOrderDateTime(LocalDateTime.now());
         order.setSupplier(supplier);
         order.setWarehouse(warehouse);
         List<OrderProduct> orderProductList = new ArrayList<>();
