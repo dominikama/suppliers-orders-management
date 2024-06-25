@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ProductEvent",
+  "type": "object",
+  "properties": {
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The timestamp of the event"
+    },
+    "productCode": {
+      "type": "string",
+      "description": "The unique identifier of the product"
+    },
+    "productDto": {
+      "$ref": "../dtos/ProductDto.json",
+      "description": "The data transfer object for the product"
+    },
+    "eventType": {
+      "bsonType": "string",
+      "enum": ["PRODUCT_CREATED", "PRODUCT_UPDATED", "PRODUCT_DELETED"],
+      "description": "Type of the event"
+    }
+  },
+  "required": ["timestamp", "productCode", "productDto", "eventType"]
+}

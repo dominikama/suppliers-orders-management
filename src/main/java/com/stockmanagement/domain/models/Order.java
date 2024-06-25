@@ -3,34 +3,50 @@ package com.stockmanagement.domain.models;
 import jakarta.persistence.*;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 @Entity
+@Table(name = "purchase_order")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    private LocalDate orderDate;
+    private Integer id;
+    @Column(unique = true, nullable = false)
+    private String number;
+    private LocalDateTime orderDateTime;
     private String status;
     @ManyToOne
     @JoinColumn(name = "supplier_id")
     private Supplier supplier;
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Product> products;
+    private List<OrderProduct> orderProducts;
 
-    public Long getId() {
+    @ManyToOne
+    @JoinColumn(name = "order_warehouse_id")
+    private Warehouse warehouse;
+
+    public Warehouse getWarehouse() {
+        return warehouse;
+    }
+
+    public void setWarehouse(Warehouse warehouse) {
+        this.warehouse = warehouse;
+    }
+
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public LocalDate getOrderDate() {
-        return orderDate;
+    public LocalDateTime getOrderDateTime() {
+        return orderDateTime;
     }
 
-    public void setOrderDate(LocalDate orderDate) {
-        this.orderDate = orderDate;
+    public void setOrderDateTime(LocalDateTime orderDateTime) {
+        this.orderDateTime = orderDateTime;
     }
 
     public String getStatus() {
@@ -49,11 +65,18 @@ public class Order {
         this.supplier = supplier;
     }
 
-    public List<Product> getProducts() {
-        return products;
+    public List<OrderProduct> getOrderProducts() {
+        return orderProducts;
+    }
+    public void setOrderProducts(List<OrderProduct> orderProducts) {
+        this.orderProducts = orderProducts;
     }
 
-    public void setProducts(List<Product> products) {
-        this.products = products;
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
     }
 }

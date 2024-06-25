@@ -3,7 +3,6 @@ package com.stockmanagement.adapters.controller;
 import com.stockmanagement.application.services.OrderService;
 import com.stockmanagement.application.services.WarehouseService;
 import com.stockmanagement.dtos.OrderDto;
-import com.stockmanagement.dtos.WarehouseDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,24 +15,16 @@ public class OrderController {
 
     private final OrderService orderService;
 
-    private final WarehouseService warehouseService;
-    public OrderController(OrderService orderService, WarehouseService warehouseService) {
+    public OrderController(OrderService orderService) {
         this.orderService = orderService;
-        this.warehouseService = warehouseService;
     }
-
     @GetMapping
     public List<OrderDto> getAllOrders() {
         return orderService.get();
     }
 
-    @GetMapping("/warehouses")
-    public List<WarehouseDto> getAllWarehouses() {
-        return warehouseService.get();
-    }
-
     @GetMapping("/{id}")
-    public ResponseEntity<OrderDto> getOrderById(@PathVariable Long id) {
+    public ResponseEntity<OrderDto> getOrderById(@PathVariable Integer id) {
         return ResponseEntity.ok(orderService.getById(id));
     }
 
@@ -43,12 +34,12 @@ public class OrderController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<OrderDto> updateOrder(@PathVariable Long id, @RequestBody OrderDto orderDTO) {
+    public ResponseEntity<OrderDto> updateOrder(@PathVariable Integer id, @RequestBody OrderDto orderDTO) {
         return ResponseEntity.ok(orderService.update(id, orderDTO));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteOrder(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteOrder(@PathVariable Integer id) {
         orderService.delete(id);
         return ResponseEntity.noContent().build();
     }

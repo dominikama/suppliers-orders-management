@@ -1,0 +1,47 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "ProductDTO",
+  "type": "object",
+  "properties": {
+    "productId": {
+      "type": "integer"
+    },
+    "productCode": {
+      "type": "string"
+    },
+    "productName": {
+      "type": "string"
+    },
+    "productDescription": {
+      "type": "string"
+    },
+    "productPrice": {
+      "type": "number",
+      "minimum": 0
+    },
+    "productCategory": {
+      "type": "string"
+    },
+    "productColor": {
+      "type": "string"
+    },
+    "productImage": {
+      "type": "string",
+      "format": "uri"
+    },
+    "productSize": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "productId",
+    "productCode",
+    "productName",
+    "productPrice",
+    "productCategory",
+    "productColor",
+    "productImage",
+    "productSize"
+  ],
+  "additionalProperties": false
+}

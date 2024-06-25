@@ -3,25 +3,24 @@ package com.stockmanagement.domain.models;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
     private String name;
+    @Column(unique = true, nullable = false)
     private String productCode;
-    private int quantity;
     private BigDecimal unitPrice;
-    @ManyToOne
-    @JoinColumn(name = "order_id")
-    private Order order;
-
-    public Long getId() {
+    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<OrderProduct> orderProducts;
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -41,14 +40,6 @@ public class Product {
         this.productCode = productCode;
     }
 
-    public int getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
-    }
-
     public BigDecimal getUnitPrice() {
         return unitPrice;
     }
@@ -57,11 +48,11 @@ public class Product {
         this.unitPrice = unitPrice;
     }
 
-    public Order getOrder() {
-        return order;
+    public List<OrderProduct> getOrderProducts() {
+        return orderProducts;
     }
 
-    public void setOrder(Order order) {
-        this.order = order;
+    public void setOrderProducts(List<OrderProduct> orderProducts) {
+        this.orderProducts = orderProducts;
     }
 }
